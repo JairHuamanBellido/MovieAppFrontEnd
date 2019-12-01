@@ -24,7 +24,6 @@ export default class InputLogin extends React.Component<InputProps, {}>  {
                         value={this.props.value}
                     />
                 </div>
-
             </Fragment>
 
 

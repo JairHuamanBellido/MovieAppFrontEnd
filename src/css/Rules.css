@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: 'Google';
+    font-weight: 400;
+    src: url('../fonts/GoogleSans-Regular.ttf');
+}
+
+@font-face{
+    font-family: 'Google';
+    font-weight: 600;
+    src: url('../fonts/GoogleSans-Medium.ttf');
+}
+@font-face{
+    font-family: 'Google';
+    font-weight: 700;
+    src: url('../fonts/GoogleSans-Bold.ttf');
+}

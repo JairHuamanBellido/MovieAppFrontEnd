@@ -4,12 +4,15 @@ import InputLogin from "../components/InputEspecial";
 import { Redirect, Link } from "react-router-dom";
 import { updateState } from "../shared/updateState";
 
+import '../css/Login.css';
+
 interface IState {
     username: string,
     password: string,
     auth: boolean
 
 }
+
 
 
 

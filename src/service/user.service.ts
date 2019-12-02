@@ -4,11 +4,23 @@ import { UserCreate } from "../dto/request/UserCreate.dto";
 
 export class UserService {
     static async register(newUser: UserCreate) {
+        let formData = new FormData();
+
+        formData.append("avatar", newUser.avatar, `${newUser.username}.jpg`);
+        formData.append("username", newUser.username);
+        formData.append("password", newUser.password);
+        formData.append("firstName", newUser.firstName);
+        formData.append("lastName", newUser.lastName);
+
+
+        
         await Axios({
             method: "post",
-            headers: { "Content-type": "application/json" },
+            headers: {
+                enctype: `multipart/form-data;boundary=${newUser.avatar.name}`
+            },
             url: `${uri}/users`,
-            data: newUser
+            data: formData
         });
     }
 

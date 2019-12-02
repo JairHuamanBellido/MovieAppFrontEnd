@@ -21,9 +21,9 @@ export class UserService {
                 username: username,
                 password: password
             }
-        }).then( data=>{
-            localStorage.setItem("jwt",data.data.access_token);
-            localStorage.setItem("id",data.data.user._id);
+        }).then(data => {
+            localStorage.setItem("jwt", data.data.access_token);
+            localStorage.setItem("id", data.data.user._id);
         });
     }
 
@@ -35,9 +35,14 @@ export class UserService {
         }
     }
 
-    static async JWT(){
+    static JWT() {
         const jwt = localStorage.getItem("jwt");
 
         return jwt;
+    }
+
+    static removeJWT() {
+        localStorage.removeItem("jwt");
+        localStorage.removeItem("id");
     }
 }

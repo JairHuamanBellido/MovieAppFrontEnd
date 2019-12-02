@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import InputLogin from "../components/InputEspecial";
 
-import { Redirect, Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { updateState } from "../shared/updateState";
 
 import '../css/Login.css';
 import { UserService } from "../service/user.service";
-
+import AutoBind from "auto-bind";
+import Home from "./Home";
 
 interface IState {
     username: string,
@@ -26,8 +27,7 @@ export default class Login extends React.Component<{}, IState> {
 
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.submit = this.submit.bind(this);
+        AutoBind.react(this);
     }
 
     state: IState = {
@@ -36,6 +36,18 @@ export default class Login extends React.Component<{}, IState> {
         auth: false,
         error: false
     }
+    async componentDidMount() {
+
+        if (await UserService.validateJWT()) {
+
+            this.setState(updateState<IState>("auth", true));
+        }
+        else {
+            this.setState(updateState<IState>("auth", false));
+        }
+
+
+    }
 
     handleChange(e) {
         const { name, value } = e.target;
@@ -43,9 +55,9 @@ export default class Login extends React.Component<{}, IState> {
     }
 
     async submit() {
-        await UserService.authenticate(this.state).then((d) => {
+        await UserService.authenticate(this.state).then(() => {
             this.setState(updateState<IState>("auth", true));
-            
+
         }).catch(e => {
             this.setState(updateState<IState>("error", true))
         })
@@ -73,8 +85,8 @@ export default class Login extends React.Component<{}, IState> {
                             textPlaceholder="contraseña" />
 
                         <button onClick={this.submit}>Ingresar</button>
-                        { this.state.error && <p>Error en las credenciales</p>}
-                        
+                        {this.state.error && <p>Error en las credenciales</p>}
+
                         <Link to="/register">Ir a registro</Link>
                     </div>
 
@@ -82,6 +94,6 @@ export default class Login extends React.Component<{}, IState> {
                 </Fragment>
             )
         }
-        return (<Redirect to="/home" />)
+        return (<Redirect push to="/home" />)
     }
 }

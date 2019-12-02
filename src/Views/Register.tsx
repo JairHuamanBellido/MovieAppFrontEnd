@@ -95,7 +95,7 @@ export default class Register extends React.Component<{}, IState>{
             )
         }
         return (
-            <Redirect to="/login" />
+            <Redirect to="/" />
         )
     }
 }

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { MyContext } from "../context/context";
+
 type InputProps = {
     name: string,
     isSecure: boolean

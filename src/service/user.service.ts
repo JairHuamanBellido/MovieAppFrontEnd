@@ -12,8 +12,6 @@ export class UserService {
         formData.append("firstName", newUser.firstName);
         formData.append("lastName", newUser.lastName);
 
-
-        
         await Axios({
             method: "post",
             headers: {

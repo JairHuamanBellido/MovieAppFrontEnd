@@ -7,7 +7,6 @@ import { updateState } from "../shared/updateState";
 import '../css/Login.css';
 import { UserService } from "../service/user.service";
 import AutoBind from "auto-bind";
-import Home from "./Home";
 
 interface IState {
     username: string,
@@ -68,28 +67,36 @@ export default class Login extends React.Component<{}, IState> {
             return (
                 <Fragment>
 
+                    <div className="login-container">
+
+                        <div className="header">
+                            <h1>Movie</h1>
+                            <p>Best movie in one place</p>
+                        </div>
 
 
-                    <div className="form">
+                        <div className="form">
 
-                        <InputLogin value={this.state.username}
-                            handleChange={this.handleChange}
-                            name="username"
-                            isSecure={false}
-                            textPlaceholder="usuario" />
+                            <InputLogin value={this.state.username}
+                                handleChange={this.handleChange}
+                                name="username"
+                                isSecure={false}
+                                textPlaceholder="Username" />
 
-                        <InputLogin value={this.state.password}
-                            handleChange={this.handleChange}
-                            name="password"
-                            isSecure={true}
-                            textPlaceholder="contraseña" />
+                            <InputLogin value={this.state.password}
+                                handleChange={this.handleChange}
+                                name="password"
+                                isSecure={true}
+                                textPlaceholder="Password" />
 
-                        <button onClick={this.submit}>Ingresar</button>
-                        {this.state.error && <p>Error en las credenciales</p>}
+                            {this.state.error && <p>Error en las credenciales</p>}
+                            <div className="btn-group">
 
-                        <Link to="/register">Ir a registro</Link>
+                                <button onClick={this.submit}>Log In</button>
+                                <p>Are you a new member? <Link to="/register">Sign Up</Link> </p>
+                            </div>
+                        </div>
                     </div>
-
 
                 </Fragment>
             )

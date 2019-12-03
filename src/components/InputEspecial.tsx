@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-
+import '../css/InputEspecial.css';
 type InputProps = {
     name: string,
     isSecure: boolean
@@ -15,14 +15,16 @@ export default class InputLogin extends React.Component<InputProps, {}>  {
 
             <Fragment>
                 <div className="field">
+
                     <input
                         type={this.props.isSecure ? "password" : "text"}
                         name={`${this.props.name}`}
                         id={`${this.props.name}`}
                         onChange={this.props.handleChange}
-                        placeholder={"Ingrese su " + this.props.textPlaceholder}
+                        placeholder={this.props.textPlaceholder}
                         value={this.props.value}
                     />
+                    <label htmlFor="">{this.props.textPlaceholder}</label>
                 </div>
             </Fragment>
 

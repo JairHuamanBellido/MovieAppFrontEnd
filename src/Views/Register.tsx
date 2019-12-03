@@ -6,7 +6,8 @@ import { UserService } from "../service/user.service";
 import AutoBind from "auto-bind";
 import { Redirect } from "react-router";
 
-
+import "../css/Register.css";
+import { Link } from "react-router-dom";
 interface IState {
     username: string;
     password: string;
@@ -14,7 +15,7 @@ interface IState {
     lastName: string;
     redirect: boolean;
     avatar: any;
-    imgShowing:any;
+    imgShowing: any;
 }
 
 export default class Register extends React.Component<{}, IState>{
@@ -74,52 +75,62 @@ export default class Register extends React.Component<{}, IState>{
             return (
                 <Fragment>
 
-                    <div>
+                    <div className="register-container">
                         {/* <form method="POST" encType="multipart/form-data" action="http://localhost:3005/api/users"> */}
 
+                        <div className="header">
+                            <Link to="/">
+                                <h1 >Movie</h1>
+                            </Link>
+                            <p>Best movie in one place</p>
+                        </div>
 
                         <div className="avatar-field">
-                            <img id="output" width="96" height="96" src={this.state.imgShowing} />
+                            <img id="output" width="96" alt="avatar" height="96" src={this.state.imgShowing} />
                             <p><label htmlFor="file">Upload image</label></p>
                             <input type="file" accept="image/*" name="avatar" id="file" onChange={this.loadFile}
                                 style={{ display: "none" }} />
                         </div>
 
-                        <InputLogin
-                            isSecure={false}
-                            name="firstName"
-                            textPlaceholder="name"
-                            value={this.state.firstName}
-                            handleChange={this.handleChange}
 
-                        />
-                        <InputLogin
-                            isSecure={false}
-                            name="lastName"
-                            textPlaceholder="last Name"
-                            value={this.state.lastName}
-                            handleChange={this.handleChange}
+                            <InputLogin
+                                isSecure={false}
+                                name="firstName"
+                                textPlaceholder="First Name"
+                                value={this.state.firstName}
+                                handleChange={this.handleChange}
 
-                        />
-                        <InputLogin
-                            isSecure={false}
-                            name="username"
-                            textPlaceholder="username"
-                            value={this.state.username}
-                            handleChange={this.handleChange}
+                            />
+                            <InputLogin
+                                isSecure={false}
+                                name="lastName"
+                                textPlaceholder="Last Name"
+                                value={this.state.lastName}
+                                handleChange={this.handleChange}
 
-                        />
-                        <InputLogin
-                            isSecure={true}
-                            name="password"
-                            textPlaceholder="password"
-                            value={this.state.password}
-                            handleChange={this.handleChange}
+                            />
+                   
+                        
+                            <InputLogin
+                                isSecure={false}
+                                name="username"
+                                textPlaceholder="Username"
+                                value={this.state.username}
+                                handleChange={this.handleChange}
 
-                        />
+                            />
+                            <InputLogin
+                                isSecure={true}
+                                name="password"
+                                textPlaceholder="Password"
+                                value={this.state.password}
+                                handleChange={this.handleChange}
+
+                            />
+                        
 
                         {/* <button type="submit">Registrar</button> */}
-                        <button onClick={this.submit}>Registrar</button>
+                        <button onClick={this.submit}>Sign Up</button>
                         {/* </form> */}
                     </div>
                 </Fragment>

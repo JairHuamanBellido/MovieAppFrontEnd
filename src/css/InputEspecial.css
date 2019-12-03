@@ -1,29 +1,3 @@
-@import url('./Rules.css');
-
-
-
-
-
-
-.login-container{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: linear-gradient(#000000,#161836);
-}
-.login-container .header *{
-    text-align: center;
-    color: #ffffff;
-}
-
-.login-container .header h1{
-    font-family: 'Google';
-    
-}
-
 .field{
     display: flex;
     flex-direction: column;
@@ -36,11 +10,11 @@
     top: 22%;
     left: 18px;
     font-weight: 600;
-    opacity: .67;
+    opacity: .67 !important;
     
     z-index: 0;
     font-size: 16px;
-
+    color: #ffffff;
 
 }
 
@@ -48,7 +22,7 @@
     width: 350px;
     padding: 2.4em 18px 16px 18px;
     border-radius: 6px;
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.3);
     font-size: 20px;
     background: transparent;
     color: #ffffff;
@@ -59,8 +33,9 @@
     border: 1px solid #4d87fa;
 }
 .field input:focus ~ label{
-    opacity: 1;
-    color: #4d87fa;
+    
+    color: #ffffff !important;
+    
 }
 .form .btn-group{
     display: flex;

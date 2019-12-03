@@ -1,0 +1,65 @@
+@import url('./Rules.css');
+.register-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#000000,#161836);
+    padding-top: 3em;
+    overflow: auto;
+}
+
+.register-container .header{
+    margin-bottom: 1em;
+}
+.register-container .header *{
+    text-align: center;
+    color: #ffffff;
+}
+
+.register-container .header h1{
+    font-family: 'Google';
+    
+}
+
+
+.field-group{
+    display: flex;
+    
+}
+
+.field{
+    margin:1em 0 !important;
+}
+
+.avatar-field {
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+}
+.avatar-field img{
+    border-radius: 10000000000px;
+}
+.avatar-field p label{
+    background: #4d87fa;
+    margin-left: 1em;
+    padding: 16px;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.register-container button{
+    background: linear-gradient(45deg,#4d87fa, #4dd7fa );
+    color: #ffffff;
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 350px;
+    margin-top: 1em;
+}

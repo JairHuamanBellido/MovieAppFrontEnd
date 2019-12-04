@@ -101,6 +101,6 @@ export default class Login extends React.Component<{}, IState> {
                 </Fragment>
             )
         }
-        return (<Redirect push to="/home" />)
+        return (<Redirect push to="/home/popular" />)
     }
 }

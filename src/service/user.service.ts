@@ -1,8 +1,15 @@
 import Axios from "axios";
 import { uri } from "../enviroment";
 import { UserCreate } from "../dto/request/UserCreate.dto";
+import { updateUser } from "../context/context";
 
 export class UserService {
+
+
+
+    static User;
+
+
     static async register(newUser: UserCreate) {
         let formData = new FormData();
 
@@ -32,16 +39,30 @@ export class UserService {
                 password: password
             }
         }).then(data => {
+            
             localStorage.setItem("jwt", data.data.access_token);
+            localStorage.setItem("username", data.data.user.username);
             localStorage.setItem("id", data.data.user._id);
+            this.User = data.data.user;
+            updateUser(data.data.user);
         });
     }
 
     static async validateJWT() {
         if (localStorage.getItem("jwt") == null) {
+            
             return false;
         } else {
             return true;
+        }
+    }
+
+    static getFromStorage(){
+
+        return {
+            jwt:localStorage.getItem("jwt"),
+            id:localStorage.getItem("id"),
+            username:localStorage.getItem("username")
         }
     }
 
@@ -51,8 +72,29 @@ export class UserService {
         return jwt;
     }
 
+    static getId(){
+        const id =  localStorage.getItem("id");
+        return id;
+    }
+
     static removeJWT() {
         localStorage.removeItem("jwt");
         localStorage.removeItem("id");
+    }
+
+    static getUsername(){
+        const username =  localStorage.get("username");
+        return username;
+    }
+
+
+    static async getUser(){
+        const res  = await Axios({
+            method: "get",
+            url: `${uri}/users/${this.getId()}`,
+            headers: {'Authorization': `Bearer ${this.JWT()}`}
+        })
+
+        return res.data;
     }
 }

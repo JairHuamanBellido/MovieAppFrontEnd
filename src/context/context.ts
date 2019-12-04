@@ -1,6 +1,19 @@
 import React from "react";
 
 
-let token =   localStorage.getItem("auth_token")
+export const globalContext = {
+    user: null,
+    movies: null
+};
 
- export const MyContext =  React.createContext(token);
+export const updateUser = user => {
+    globalContext.user = user;
+};
+
+export const updateMovies = movies => {
+    globalContext.movies = movies;
+};
+export const MyContext = React.createContext({
+    movies: [ ],
+    user: {username:'e'}
+});

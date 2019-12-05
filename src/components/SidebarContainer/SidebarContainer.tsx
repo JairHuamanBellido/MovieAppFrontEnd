@@ -26,4 +26,3 @@ export default class SideBarContainer extends React.PureComponent {
     }
 }
 
-SideBarContainer.contextType = AuthContext;

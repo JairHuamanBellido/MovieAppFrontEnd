@@ -1,16 +1,22 @@
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-class Movies extends Component {
+import { Movie } from '../../dto/response/Movie.interface';
+
+interface IProps {
+    movie: Movie | any
+}
+
+class MovieComponent extends Component<IProps, {}> {
     render() {
         return (
-            <div>
-                <h2>Lista de pleiculas</h2>
+            <div className="item" style={{width:"210px", overflow:"auto", margin: "24px 0"}}>
+                <img width={190} src={`https://image.tmdb.org/t/p/original/${this.props.movie.poster_path}`} alt="" />
+                <p>{this.props.movie.title}</p>
             </div>
         );
     }
 }
 
 
-export default Movies;
+export default MovieComponent;

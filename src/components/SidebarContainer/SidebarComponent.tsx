@@ -30,7 +30,7 @@ class SidebarComponent extends React.Component<IProps, IState> {
 
     opacity(key: any | string) {
 
-        if (key == this.state.activeColor) {
+        if (key === this.state.activeColor) {
             return "#53CEA4";
         }
         return "rgba(255,255,255,.22)"

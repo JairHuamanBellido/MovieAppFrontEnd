@@ -5,7 +5,7 @@ import { Redirect } from "react-router";
 import { updateState } from "../shared/updateState";
 import { Movie } from "../dto/response/Movie.interface";
 import { MoviesService } from "../service/movies.service";
-import { MyContext } from "../context/context";
+import { UserContext } from "../context/UserContext";
 
 import HomeContainer from "../components/HomeContainer/HomeContainer";
 import { User } from "../dto/response/User.interface";
@@ -45,9 +45,10 @@ export default class Home extends React.Component {
     async componentDidMount() {
         if (! await UserService.validateJWT()) {
             this.Logout();
-            console.log("asd");
+            
         }
 
+        console.log("renderizando")
 
         const movies = await MoviesService.getPopular();
         const user = await UserService.getUser();
@@ -67,20 +68,20 @@ export default class Home extends React.Component {
     }
 
     render() {
-        console.log(this.state.movies);
+        
         if (!this.state.logout) {
             return (
                 <Fragment>
                     <AuthContext.Provider value={{
-                        logout: ()=>{this.Logout()}
+                        logout: () => { this.Logout() }
                     }}>
-                        <MyContext.Provider value={{
-                            movies: [1, 2, 3],
+                        <UserContext.Provider value={{
+                            movies: this.state.movies,
                             user: this.state.user
                         }}>
                             <HomeContainer />
 
-                        </MyContext.Provider>
+                        </UserContext.Provider>
                     </AuthContext.Provider>
                 </Fragment>
             )
@@ -88,5 +89,5 @@ export default class Home extends React.Component {
         return <Redirect push to="/" />
     }
 }
-Home.contextType = MyContext;
+Home.contextType = UserContext;
 Home.contextType = AuthContext;

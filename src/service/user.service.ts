@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { uri } from "../enviroment";
 import { UserCreate } from "../dto/request/UserCreate.dto";
-import { updateUser } from "../context/context";
+
 
 export class UserService {
 
@@ -44,7 +44,7 @@ export class UserService {
             localStorage.setItem("username", data.data.user.username);
             localStorage.setItem("id", data.data.user._id);
             this.User = data.data.user;
-            updateUser(data.data.user);
+           
         });
     }
 

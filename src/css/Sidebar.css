@@ -1,0 +1,44 @@
+@import url('./Rules.css');
+
+.sidebar-component{
+    width: 20vw;
+    height: 100vh;
+    background: #131624;
+    position: relative;
+}
+
+.sidebar-component .header,.sidebar-component .nav-items{
+    width: 90%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.sidebar-component .header img{
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin: 1.5em 0;
+}   
+.sidebar-component .header p{
+    font-size: 20px;
+    font-weight: bold;
+    opacity: .67;
+    margin-bottom: 1em;
+}
+
+.sidebar-component .nav-items{
+    
+    border: none;
+    padding: 0 1.5em;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.sidebar-component .nav-items a{
+    margin: 24px 0;
+    color: #ffffff;
+}

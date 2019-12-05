@@ -1,19 +1,8 @@
-import React from "react";
+import { createContext } from "react";
+// import { UserContext } from "./UserContext";
+// import { AuthContext } from "./AuthContext";
 
-
-export const globalContext = {
-    user: null,
-    movies: null
-};
-
-export const updateUser = user => {
-    globalContext.user = user;
-};
-
-export const updateMovies = movies => {
-    globalContext.movies = movies;
-};
-export const MyContext = React.createContext({
-    movies: [ ],
-    user: {username:'e'}
-});
+// export const MyContext  = createContext({
+//     userContext:UserContext,
+//     authContext:AuthContext
+// })

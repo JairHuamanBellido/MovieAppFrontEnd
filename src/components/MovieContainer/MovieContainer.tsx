@@ -1,8 +1,10 @@
 import React from "react";
-export default class PopularMovieContainer extends React.Component{
-    render(){
+export default class PopularMovieContainer extends React.Component {
+    render() {
         return (
-            <h1>Soy el contenedor de peliculas populares</h1>
+            <div className="popularMovieContainer">
+                <h1>Soy el contenedor de peliculas populares</h1>
+            </div>
         )
     }
 }

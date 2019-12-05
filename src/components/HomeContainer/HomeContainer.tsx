@@ -1,32 +1,32 @@
 import React, { Component, Fragment } from 'react';
-import SideBar from '../Sidebar';
+
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import PopularMovieContainer from '../MovieContainer/MovieContainer';
 
 import CollectionContainer from '../CollectionContainer/Collection';
-
+import SideBarContainer from '../SidebarContainer/SidebarContainer';
+import "../../css/Home.css"
 class HomeContainer extends Component {
     render() {
         return (
             <Fragment>
-                <div>
-                    <SideBar />
-                    
-                    <Router>
+                <Router>
+                    <div className="homeContainer">
+                        <SideBarContainer />
+
 
                         <Switch>
-                            <Route exact path="/home/popular">
-                                <PopularMovieContainer />
-                            </Route>
-                            <Route exact path="/home/collection">
-                                <CollectionContainer />
-                            </Route>
+                            <Route path="/home/popular" component={PopularMovieContainer} />
+
+                            <Route path="/home/collection" component={CollectionContainer} />
+
 
                         </Switch>
-                    </Router>
+                    </div>
+                </Router>
 
 
-                </div>
+
             </Fragment>
         );
     }

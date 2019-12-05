@@ -1,0 +1,28 @@
+@import url('./Rules.css');
+
+.searchbarContainer{
+    width: 100%;
+    height: 64px;
+    padding: 2em;
+    position: relative;
+}
+
+.searchbarContainer input{
+
+    width: 100%;
+    background: transparent;
+    color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    
+}
+.searchbarContainer input:focus{
+    outline: none;
+    
+}
+
+.searchbarContainer input::placeholder{
+    color: rgba(255,255,255,.3);
+}

@@ -1,0 +1,20 @@
+.item-movie {
+    margin: 1.5em 2em;
+    position: relative;
+}
+
+.item-movie .title-movie {
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    margin-top: 16px;
+    color: #fff;
+}
+
+.item-movie .year-movie {
+    color: rgba(255, 255, 255, .37);
+    font-size: 16px;
+    margin-top: 4px;
+}

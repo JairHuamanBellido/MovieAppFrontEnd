@@ -2,18 +2,24 @@
 import React, { Component } from 'react';
 
 import { Movie } from '../../dto/response/Movie.interface';
-
+import "../../css/Movie.css";
+import { Link } from 'react-router-dom';
 interface IProps {
     movie: Movie | any
 }
 
 class MovieComponent extends Component<IProps, {}> {
+
     render() {
+
         return (
-            <div className="item" style={{width:"210px", overflow:"auto", margin: "24px 0"}}>
-                <img width={190} src={`https://image.tmdb.org/t/p/original/${this.props.movie.poster_path}`} alt="" />
-                <p>{this.props.movie.title}</p>
-            </div>
+            <Link to={`/home/movie/${this.props.movie.id}`}>
+                <div className="item-movie" style={{ width: "210px", overflow: "auto" }}>
+                    <img width={190} src={`https://image.tmdb.org/t/p/original/${this.props.movie.poster_path}`} alt="" />
+                    <p className="title-movie" >{this.props.movie.title}</p>
+                    <p className="year-movie">{this.props.movie.release_date}</p>
+                </div>
+            </Link>
         );
     }
 }

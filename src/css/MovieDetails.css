@@ -1,0 +1,12 @@
+.moviedetails-container{
+    width: 80vw !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    padding: 4em !important;
+    background: linear-gradient(45deg,rgba(0,0,0,1),rgba(0,0,0,.1));
+    color: #ffffff;
+}
+
+.moviedetails-container .overview-movie{
+    margin-top: 3em;
+}

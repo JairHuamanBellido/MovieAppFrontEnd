@@ -5,4 +5,8 @@ export interface Movie {
     release_date: string;
     backdrop_path:string;
     overview:string;
+    genres:[{
+        name:string
+    }];
+    vote_average: number;
 }

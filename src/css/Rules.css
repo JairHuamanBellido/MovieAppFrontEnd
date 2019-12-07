@@ -23,3 +23,6 @@
     font-weight: 700;
     src: url('../fonts/GoogleSans-Bold.ttf');
 }
+html{
+    overflow-y: scroll !important;
+}

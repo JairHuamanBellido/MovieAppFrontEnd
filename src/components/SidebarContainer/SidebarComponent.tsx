@@ -31,7 +31,7 @@ class SidebarComponent extends React.Component<IProps, IState> {
     opacity(key: any | string) {
 
         if (key === this.state.activeColor) {
-            return "#53CEA4";
+            return "rgba(255,255,255,1)";
         }
         return "rgba(255,255,255,.22)"
     }
@@ -41,18 +41,24 @@ class SidebarComponent extends React.Component<IProps, IState> {
             <Fragment>
                 <div className="sidebar-component">
 
-
-                    <div className="header">
+                    <div className="logo">
                         <h1>Movies</h1>
-                        <img src={`https://jairhuamanbellido.blob.core.windows.net/avatarimages/${this.props.user.username}.jpg`} alt="" />
-                        <p>{this.props.user.firstName + " " + this.props.user.lastName}</p>
 
                     </div>
                     <div className="nav-items">
 
-                        <Link id="Popular" style={{color:this.opacity("Popular")}}  onClick={this.toggle} to="/home/popular">Trending Movie</Link>
-                        <Link id="Collection" style={{color:this.opacity("Collection")}}  onClick={this.toggle} to="/home/collection">My Collection</Link>
-                        <button onClick={this.props.logout} > Salir </button>
+                        <Link id="Popular" style={{ color: this.opacity("Popular") }} onClick={this.toggle} to="/home/popular">Home
+                        
+                        </Link>
+                        <Link id="Collection" style={{ color: this.opacity("Collection") }} onClick={this.toggle} to="/home/collection">Collection
+                        
+                        </Link>
+                        
+                    </div>
+                    <div className="avatar">
+                        <img src={`https://jairhuamanbellido.blob.core.windows.net/avatarimages/${this.props.user.username}.jpg`} alt="" />
+
+
                     </div>
                 </div>
             </Fragment>

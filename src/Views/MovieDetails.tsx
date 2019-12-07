@@ -19,7 +19,9 @@ class MovieDetails extends React.Component<RouteComponentProps<{ id?: string }>,
             overview: "",
             poster_path: "",
             release_date: "",
-            title: ""
+            title: "",
+            genres:[{name: ""}],
+            vote_average: -1
         }
 
     }

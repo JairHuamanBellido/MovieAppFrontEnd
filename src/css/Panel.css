@@ -1,0 +1,52 @@
+.panelContainer{
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffffff;
+    background-position: center center !important;
+    background-size: cover !important;
+}
+
+
+.panel-details{
+    margin-left: 192px;
+}
+.panel-details .genres{
+    font-size: 18px;
+    color: rgba(255,255,255,.50);
+}
+
+.panel-details .score{
+    display: flex;
+    align-items: center;
+    margin: 16px 0  32px 0;
+
+}
+.panel-details .score p{
+    margin-left: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+.panel-details .overview p{
+    width: 800px;
+    font-size: 20px;
+    margin-top: 16px;
+}
+
+.panel-details .btn-group button{
+    margin-top: 96px;
+    background: rgba(49,76,255,1);
+    color: #ffffff;
+
+    padding: 16px 64px;
+    border-radius: 100000px;
+    font-weight: 600;
+    font-size: 24px;
+    border: none;
+    box-shadow: 0 0 24px 2px rgba(49,76,255,1);
+    cursor: pointer;
+}

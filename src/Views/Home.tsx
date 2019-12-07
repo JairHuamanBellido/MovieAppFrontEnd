@@ -48,7 +48,6 @@ export default class Home extends React.Component {
             
         }
 
-        console.log("renderizando")
 
         const movies = await MoviesService.getPopular();
         const user = await UserService.getUser();
@@ -68,7 +67,6 @@ export default class Home extends React.Component {
     }
 
     render() {
-        
         if (!this.state.logout) {
             return (
                 <Fragment>

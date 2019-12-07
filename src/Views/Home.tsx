@@ -3,7 +3,7 @@ import AutoBind from "auto-bind";
 import { UserService } from "../service/user.service";
 import { Redirect } from "react-router";
 import { updateState } from "../shared/updateState";
-import { Movie } from "../dto/response/Movie.interface";
+
 import { MoviesService } from "../service/movies.service";
 import { UserContext } from "../context/UserContext";
 

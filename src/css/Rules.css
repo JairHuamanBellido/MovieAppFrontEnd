@@ -25,5 +25,5 @@
     src: url('../fonts/GoogleSans-Bold.ttf');
 }
 html{
-    overflow-y: scroll !important;
+    overflow-y: auto !important;
 }

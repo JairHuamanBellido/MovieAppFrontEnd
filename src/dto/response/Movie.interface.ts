@@ -1,12 +1,15 @@
-export interface Movie {
-    id: number;
-    title: string;
-    poster_path: string;
-    release_date: string;
-    backdrop_path:string;
-    overview:string;
-    genres:[{
-        name:string
-    }];
-    vote_average: number;
+import { Actor } from "./Actor.interface";
+import { Gender } from "./Gender.interface";
+
+export interface Movie{
+    id?:number;
+    backdrop_path?:string;
+    poster_path?:string;
+    overview?:string;
+    title?:string;
+    vote_average?:number;
+    actors?:Actor[];
+    release_date?:string;
+    runtime?:number;
+    genres?:Gender[]
 }

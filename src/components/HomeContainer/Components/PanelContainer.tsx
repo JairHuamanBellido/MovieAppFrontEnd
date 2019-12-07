@@ -24,7 +24,8 @@ class PanelContainer extends React.Component<IProps, IState> {
             poster_path: "",
             release_date: "",
             genres: [{ name: "" }],
-            vote_average: -1
+            vote_average: 1
+            
         }
     }
 

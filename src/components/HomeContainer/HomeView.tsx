@@ -6,10 +6,10 @@ import PopularMovieContainer from '../MovieContainer/MovieContainer';
 export default class HomeView extends React.Component {
 
     render() {
-        console.log(this.context.movies);
+        
         return (
             <Fragment>
-                <PanelContainer movie={this.context.movies[4]} />
+                <PanelContainer movie={this.context.movies[0]} />
                 <PopularMovieContainer />
             </Fragment>
         );

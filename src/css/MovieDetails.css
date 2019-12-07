@@ -1,12 +1,147 @@
 .moviedetails-container{
-    width: 80vw !important;
-    background-position: center center !important;
-    background-size: cover !important;
-    padding: 4em !important;
-    background: linear-gradient(45deg,rgba(0,0,0,1),rgba(0,0,0,.1));
+    background: rgba(19,19,25,1);
     color: #ffffff;
 }
 
-.moviedetails-container .overview-movie{
+.moviedetails-panel{
+    width: 100vw !important;
+    height: 100vh !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    overflow-y: hidden !important;
+    background: linear-gradient(45deg,rgba(0,0,0,1),rgba(0,0,0,.1));
+    color: #ffffff;
+    display: flex;
+    align-items: flex-end;
+}
+
+.moviedetails-panel .overview-movie{
     margin-top: 3em;
+}
+
+.posterMovieDetails
+{
+    color: #ffffff;
+    margin-top: -256px;
+    margin-left: 256px;
+    display: flex;
+    
+}
+.posterMovieDetails .details{
+    margin-left: 64px;
+    margin-top: 32px;
+}
+
+.posterMovieDetails .btn-group{
+    margin-top: 64px;
+}
+
+.posterMovieDetails .btn-group .watch-btn{
+    background: rgba(49,76,255,1);
+    color: #ffffff;
+    margin-right: 64px;
+    padding: 16px 64px;
+    border-radius: 100000px;
+    font-weight: 600;
+    font-size: 22px;
+    border: none;
+    box-shadow: 0 0 24px 2px rgba(49,76,255,1);
+    cursor: pointer;
+}
+
+.posterMovieDetails .btn-group .collection-btn{
+    background: rgb(229, 166, 72);
+    color: #ffffff;
+
+    padding: 16px 64px;
+    border-radius: 100000px;
+    font-weight: 600;
+    font-size: 22px;
+    border: none;
+    box-shadow: 0 0 24px 2px rgb(229, 166, 72);
+    cursor: pointer;
+}
+
+.aboutMovie{
+    width: 100%;
+    padding: 128px 256px 128px 256px;
+    display: flex;
+    position: relative;
+}
+
+.aboutMovie .infoMovieContainer{
+    width: 60%;
+}
+
+.aboutMovie .infoMovieContainer .storyline h2{
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    margin-bottom: 16px;
+}
+
+.aboutMovie .infoMovieContainer .details h2{
+    font-size: 28px;
+    font-weight: 600;
+}
+.aboutMovie .infoMovieContainer .details p{
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(255,255,255,.87);
+}
+.aboutMovie .castContainer{
+    margin-left: 192px;
+    width: 40%;
+}
+
+.aboutMovie .castContainer h2 {
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    font-size: 28px;
+}
+
+.aboutMovie .castContainer .actor-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+}
+.aboutMovie .castContainer .actor-item .avatar{
+    width: 64px !important;
+    height: 64px !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    border-radius: 50%;
+}
+
+.aboutMovie .castContainer .actor-item .details{
+    margin-left: 24px;
+}
+.aboutMovie .castContainer .actor-item .details .name-actor{
+    font-size: 22px;
+    color: rgba(255,255,255,.5);
+}
+
+.aboutMovie .castContainer .actor-item .details .character-actor{
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.aboutMovie .infoMovieContainer .details{
+    display: flex;
+    margin-top: 96px;
+    justify-content: space-between;
+}
+
+
+.aboutMovie .infoMovieContainer .details .score{
+    display: flex;
+    flex-direction: column;
+}
+.aboutMovie .infoMovieContainer .details .score > div{
+    display: flex;
+}
+.aboutMovie .infoMovieContainer .details .score > div p{
+    margin-left: 12px;
+    font-size: 24px;
 }

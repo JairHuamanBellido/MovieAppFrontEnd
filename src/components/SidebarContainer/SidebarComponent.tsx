@@ -24,7 +24,7 @@ class SidebarComponent extends React.Component<IProps, IState> {
     }
 
     toggle(e) {
-        console.log(e.target.id)
+        
         this.setState(updateState<IState>("activeColor", e.target.id));
     }
 

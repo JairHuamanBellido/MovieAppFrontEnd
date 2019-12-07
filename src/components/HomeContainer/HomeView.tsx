@@ -9,7 +9,7 @@ export default class HomeView extends React.Component {
         console.log(this.context.movies);
         return (
             <Fragment>
-                <PanelContainer movie={this.context.movies[1]} />
+                <PanelContainer movie={this.context.movies[4]} />
                 <PopularMovieContainer />
             </Fragment>
         );

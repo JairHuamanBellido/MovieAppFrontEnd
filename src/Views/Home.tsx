@@ -10,10 +10,11 @@ import { UserContext } from "../context/UserContext";
 import HomeContainer from "../components/HomeContainer/HomeContainer";
 import { User } from "../dto/response/User.interface";
 import { AuthContext } from "../context/AuthContext";
+import { MoviePoster } from "../dto/response/MoviePoster.interface";
 
 interface IState {
     logout: boolean;
-    movies: Movie[];
+    movies: MoviePoster[];
     user: User
 
 }

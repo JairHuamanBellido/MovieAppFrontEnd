@@ -16,14 +16,39 @@
     flex-direction: column;
     align-items: center;
     color: #ffffff;
+    padding: 0 128px !important;
 }
-.homeContainer .nav-items{
+.trendingNowContainer .nav-items{
     margin: 48px 0;
     display: flex;
-
+    
 }
-.homeContainer .nav-items p{
+
+.trendingNowContainer .nav-items .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+.trendingNowContainer .nav-items p{
     margin: 0 64px;
     font-weight: 600;
     font-size: 22px;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+
+.trendingNowContainer .nav-items .indicator{
+    margin-top: 8px;
+    width: 10px;
+    height: 10px;
+    background: rgba(49,75,255,1);
+    border-radius: 10000px;
+    box-shadow: 0 0 20px 2px rgba(49,75,255,1);
+}
+
+.trendingNowContainer .listMoviesPopular{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

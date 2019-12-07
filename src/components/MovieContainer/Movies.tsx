@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import { Movie } from '../../dto/response/Movie.interface';
 import "../../css/Movie.css";
 import { Link } from 'react-router-dom';
+import { MoviePoster } from '../../dto/response/MoviePoster.interface';
 interface IProps {
-    movie: Movie | any
+    movie: MoviePoster 
 }
 
 class MovieComponent extends Component<IProps, {}> {

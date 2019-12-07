@@ -1,3 +1,4 @@
+
 .panelContainer{
     width: 100vw;
     height: 100vh;
@@ -7,8 +8,10 @@
     justify-content: flex-start;
     align-items: center;
     color: #ffffff;
-    background-position: center center !important;
+    background-attachment: fixed;
+    background-position: center center  !important;
     background-size: cover !important;
+    background-repeat: no-repeat !important;
 }
 
 
@@ -35,8 +38,8 @@
     width: 800px;
     font-size: 20px;
     margin-top: 16px;
+    line-height: 1.5;
 }
-
 .panel-details .btn-group button{
     margin-top: 96px;
     background: rgba(49,76,255,1);

@@ -45,7 +45,7 @@ class MovieDetails extends React.Component<RouteComponentProps<{ id?: string }>,
 
     componentDidMount() {
 
-        MoviesService.findById(this.props.match.params.id).then(movie=>{
+        MoviesService.findById(this.props.match.params.id).then(movie => {
             window.scroll(0, 0);
             this.setState(updateState<IState>("movie", movie));
 
@@ -72,44 +72,47 @@ class MovieDetails extends React.Component<RouteComponentProps<{ id?: string }>,
 
 
             <Fragment>
-                
-                    <div className="moviedetails-container">
 
-                        <div className="moviedetails-panel" style={{
-                            background: `linear-gradient(rgba(28,31,57,.67)20%,rgba(28,31,57,.00),rgba(19,19,25,.00)50%,rgba(19,19,25,1)90%),url(${imguri}${this.state.movie.backdrop_path})`
+                <div className="moviedetails-container">
 
-                        }}>
+                    <div className="moviedetails-panel" style={{
+                        background: `linear-gradient(rgba(28,31,57,.67)20%,rgba(28,31,57,.00),rgba(19,19,25,.00)50%,rgba(19,19,25,1)90%),url(${imguri}${this.state.movie.backdrop_path})`
 
-                        </div>
-                        <PosterMovieDetail poster_path={this.state.movie.poster_path} year={this.state.movie.release_date.slice(0, 4)} title={this.state.movie.title} />
+                    }}>
 
-                        <div className="aboutMovie">
-                            <InfoMovie
-                                duration={this.state.movie.runtime}
-                                genres={this.state.movie.genres}
-                                overview={this.state.movie.overview}
-                                vote_average={this.state.movie.vote_average}
-                            />
+                    </div>
+                    <PosterMovieDetail poster_path={this.state.movie.poster_path} year={this.state.movie.release_date.slice(0, 4)} title={this.state.movie.title} />
+
+                    <div className="aboutMovie">
+                        <InfoMovie
+                            duration={this.state.movie.runtime}
+                            genres={this.state.movie.genres}
+                            overview={this.state.movie.overview}
+                            vote_average={this.state.movie.vote_average}
+                        />
 
 
-                            <div className="castContainer">
-                                <h2>Cast</h2>
-                                {this.state.movie.actors.map((actor, index) => (
-                                    <ActorMovie key={index} Actor={actor} />
-                                ))}
-                            </div>
-
+                        <div className="castContainer">
+                            <h2>Cast</h2>
+                            {this.state.movie.actors.map((actor, index) => (
+                                <ActorMovie key={index} Actor={actor} />
+                            ))}
                         </div>
 
+                    </div>
+
+                    <div className="MovieSimilar">
+                        <h2>Similar movies</h2>
                         <div className="listMovieSimilar">
 
                             {this.state.movie.similarMovies.map((movie, index) => (
                                 <MovieComponent key={index} movie={movie} />
                             ))}
                         </div>
-
-
                     </div>
+
+
+                </div>
 
 
 

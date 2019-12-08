@@ -145,3 +145,26 @@
     margin-left: 12px;
     font-size: 24px;
 }
+
+
+.MovieSimilar{
+    padding: 0 256px 96px 256px;   
+    display: flex;
+    flex-direction: column;
+}
+.listMovieSimilar{
+    
+    display: flex;
+    
+    justify-content: space-between;
+}
+.listMovieSimilar .item-movie{
+    margin: 0 !important;
+}
+
+.MovieSimilar h2{
+    font-size: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    margin-bottom: 32px;
+}

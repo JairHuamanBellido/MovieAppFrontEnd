@@ -15,7 +15,8 @@ import { MoviePoster } from "../dto/response/MoviePoster.interface";
 interface IState {
     logout: boolean;
     movies: MoviePoster[];
-    user: User
+    user: User,
+    load: boolean
 
 }
 export default class Home extends React.Component {
@@ -40,27 +41,38 @@ export default class Home extends React.Component {
             firstName: "",
             lastName: "",
             username: ""
-        }
+        },
+        load: false
     }
 
-    async componentDidMount() {
-        if (! await UserService.validateJWT()) {
-            this.Logout();
+    componentDidMount() {
+        UserService.validateJWT().then(res => {
+            if (!res) {
+                this.Logout();
+            }
+        })
+        MoviesService.getPopular().then(movies => {
+            this.setState(updateState<IState>("movies", movies));
+            this.setState(updateState<IState>("load", true));
             
-        }
-
-
-        const movies = await MoviesService.getPopular();
-        const user = await UserService.getUser();
-
-        this.setState(updateState<IState>("user", user));
-        this.setState(updateState<IState>("movies", movies));
-
-
+        });
+        UserService.getUser().then(user => {
+            
+            this.setState(updateState<IState>("user", user));
+        });
 
 
 
     }
+
+
+
+
+
+
+
+
+
 
     Logout() {
         UserService.removeJWT();
@@ -69,21 +81,24 @@ export default class Home extends React.Component {
 
     render() {
         if (!this.state.logout) {
-            return (
-                <Fragment>
-                    <AuthContext.Provider value={{
-                        logout: () => { this.Logout() }
-                    }}>
-                        <UserContext.Provider value={{
-                            movies: this.state.movies,
-                            user: this.state.user
+            if (this.state.load) {
+                return (
+                    <Fragment>
+                        <AuthContext.Provider value={{
+                            logout: () => { this.Logout() }
                         }}>
-                            <HomeContainer />
+                            <UserContext.Provider value={{
+                                movies: this.state.movies,
+                                user: this.state.user
+                            }}>
+                                <HomeContainer />
 
-                        </UserContext.Provider>
-                    </AuthContext.Provider>
-                </Fragment>
-            )
+                            </UserContext.Provider>
+                        </AuthContext.Provider>
+                    </Fragment>
+                )
+            }
+            return <h1>Cargando</h1>
         }
         return <Redirect push to="/" />
     }

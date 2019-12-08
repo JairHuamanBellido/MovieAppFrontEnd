@@ -25,59 +25,56 @@ class PanelContainer extends React.Component<IProps, IState> {
             release_date: "",
             genres: [{ name: "" }],
             vote_average: 1
-            
+
         }
     }
 
+    componentDidMount() {
+        MoviesService.findById(this.props.movie.id).then(data => {
+          
+            this.setState(updateState<IState>("movie", data))
+        })
+    }
 
     render() {
 
-        if (this.props.movie) {
+        return (
+            <Fragment>
+                <div style={{
+                    background: `linear-gradient(90deg,rgba(29,32,59,.99),rgba(29,32,59,.01)100%,rgba(29,32,59,.01)),  url(${imguri}${this.state.movie.backdrop_path})`
 
-            MoviesService.findById(this.props.movie.id).then(data => {
-                this.setState(updateState<IState>("movie", data))
+                }} className="panelContainer">
 
-            })
+                    <div className="panel-details">
 
+                        <p className="genres">
+                            {this.state.movie.genres.map(gen => gen.name).join(" | ")}
+                        </p>
+                        <div className="score">
+                            <img src="/star.svg" alt="" />
+                            <p>{this.state.movie.vote_average}</p>
+                        </div>
+                        <div className="overview">
 
-            return (
-                <Fragment>
-                    <div style={{
-                        background: `linear-gradient(90deg,rgba(29,32,59,.99),rgba(29,32,59,.01)100%,rgba(29,32,59,.01)),  url(${imguri}${this.state.movie.backdrop_path})`
+                            <h1>{this.state.movie.title}</h1>
+                            <p>{this.state.movie.overview}</p>
 
-                    }} className="panelContainer">
-
-                        <div className="panel-details">
-
-                            <p className="genres">
-                                {this.state.movie.genres.map(gen => gen.name).join(" | ")}
-                            </p>
-                            <div className="score">
-                                <img src="/star.svg" alt="" />
-                                <p>{this.state.movie.vote_average}</p>
-                            </div>
-                            <div className="overview">
-
-                                <h1>{this.state.movie.title}</h1>
-                                <p>{this.state.movie.overview}</p>
-
-
-                            </div>
-
-                            <div className="btn-group">
-                                <button>View</button>
-                            </div>
 
                         </div>
 
+                        <div className="btn-group">
+                            <button>View</button>
+                        </div>
+
                     </div>
-                </Fragment>
-            )
-        }
-        return <h2>Cargando</h2>;
 
-
+                </div>
+            </Fragment>
+        )
     }
+
+
 }
+
 
 export default PanelContainer;

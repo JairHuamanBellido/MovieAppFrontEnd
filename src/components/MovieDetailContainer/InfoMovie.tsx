@@ -29,7 +29,7 @@ class InfoMovie extends React.Component<IProps> {
                     </div>
                     <div className="duration">
                         <h2>Duration</h2>
-                        <p>{this.props.duration}</p>
+                        <p>{this.props.duration} min</p>
                     </div>
                     <div className="geners">
                         <h2>Geners</h2>

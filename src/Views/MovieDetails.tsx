@@ -1,20 +1,25 @@
-import React, { Fragment } from 'react';
-import { RouteComponentProps } from 'react-router';
+import React, { Fragment, Suspense } from 'react';
+import { RouteComponentProps, Switch } from 'react-router';
 import { Movie } from '../dto/response/Movie.interface';
 import { MoviesService } from '../service/movies.service';
 import { updateState } from '../shared/updateState';
 
 import { imguri } from '../enviroment';
-
+import { Router } from "react-router-dom";
 import "../css/MovieDetails.css";
 import PosterMovieDetail from '../components/MovieDetailContainer/PosterMovieDetail';
 import InfoMovie from '../components/MovieDetailContainer/InfoMovie';
 import ActorMovie from '../components/MovieDetailContainer/ActorMovie';
+import MovieComponent from '../components/MovieContainer/Movies';
 interface IState {
     movie: Movie
+
 }
 
 class MovieDetails extends React.Component<RouteComponentProps<{ id?: string }>, IState> {
+
+
+
     state: IState = {
         movie: {
             backdrop_path: "",
@@ -30,52 +35,83 @@ class MovieDetails extends React.Component<RouteComponentProps<{ id?: string }>,
                 name: "",
                 profile_path: ""
             }],
-            runtime: -1
+            runtime: -1,
+            similarMovies: []
 
-        }
+        },
+
 
     }
 
-    async componentDidMount() {
-        const movie = await MoviesService.findById(this.props.match.params.id);
-        window.scroll(0,0);
-        this.setState(updateState<IState>("movie", movie));
+    componentDidMount() {
+
+        MoviesService.findById(this.props.match.params.id).then(movie=>{
+            window.scroll(0, 0);
+            this.setState(updateState<IState>("movie", movie));
+
+        });
+
+
+    }
+
+    UNSAFE_componentWillReceiveProps() {
+        console.log("recargando")
+        MoviesService.findById(this.props.match.params.id).then(movie => {
+            console.log("Actualizando la pagina")
+            window.scroll(0, 0);
+            this.componentDidMount();
+
+        });
+
+
     }
     render() {
 
-        
+
         return (
+
+
             <Fragment>
-                <div className="moviedetails-container">
+                
+                    <div className="moviedetails-container">
 
-                    <div className="moviedetails-panel" style={{
-                        background: `linear-gradient(rgba(28,31,57,.67)20%,rgba(28,31,57,.00),rgba(19,19,25,.00)50%,rgba(19,19,25,1)90%),url(${imguri}${this.state.movie.backdrop_path})`
+                        <div className="moviedetails-panel" style={{
+                            background: `linear-gradient(rgba(28,31,57,.67)20%,rgba(28,31,57,.00),rgba(19,19,25,.00)50%,rgba(19,19,25,1)90%),url(${imguri}${this.state.movie.backdrop_path})`
 
-                    }}>
+                        }}>
 
-                    </div>
-                    <PosterMovieDetail poster_path={this.state.movie.poster_path} year={this.state.movie.release_date.slice(0, 4)} title={this.state.movie.title} />
+                        </div>
+                        <PosterMovieDetail poster_path={this.state.movie.poster_path} year={this.state.movie.release_date.slice(0, 4)} title={this.state.movie.title} />
 
-                    <div className="aboutMovie">
-                        <InfoMovie
-                            duration={this.state.movie.runtime}
-                            genres={this.state.movie.genres}
-                            overview={this.state.movie.overview}
-                            vote_average={this.state.movie.vote_average}
-                        />
+                        <div className="aboutMovie">
+                            <InfoMovie
+                                duration={this.state.movie.runtime}
+                                genres={this.state.movie.genres}
+                                overview={this.state.movie.overview}
+                                vote_average={this.state.movie.vote_average}
+                            />
 
 
-                        <div className="castContainer">
-                            <h2>Cast</h2>
-                            {this.state.movie.actors.map((actor,index) => (
-                                <ActorMovie key={index} Actor={actor} />
+                            <div className="castContainer">
+                                <h2>Cast</h2>
+                                {this.state.movie.actors.map((actor, index) => (
+                                    <ActorMovie key={index} Actor={actor} />
+                                ))}
+                            </div>
+
+                        </div>
+
+                        <div className="listMovieSimilar">
+
+                            {this.state.movie.similarMovies.map((movie, index) => (
+                                <MovieComponent key={index} movie={movie} />
                             ))}
                         </div>
 
+
                     </div>
 
 
-                </div>
 
             </Fragment>
         );

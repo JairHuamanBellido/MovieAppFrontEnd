@@ -12,7 +12,7 @@ interface IProps {
 interface IState {
     activeColor: string
 }
-class SidebarComponent extends React.Component<IProps, IState> {
+class HeaderComponent extends React.Component<IProps, IState> {
 
     constructor(props) {
         super(props);
@@ -62,4 +62,4 @@ class SidebarComponent extends React.Component<IProps, IState> {
     }
 }
 
-export default SidebarComponent;
+export default HeaderComponent;

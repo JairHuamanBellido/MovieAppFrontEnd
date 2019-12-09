@@ -2,9 +2,9 @@ import React from "react";
 import { UserContext } from "../../context/UserContext";
 
 import { AuthContext } from "../../context/AuthContext";
-import SidebarComponent from "./SidebarComponent";
+import SidebarComponent from "./HeaderComponent";
 
-export default class SideBarContainer extends React.PureComponent {
+export default class HeaderContainer extends React.PureComponent {
 
 
     render() {

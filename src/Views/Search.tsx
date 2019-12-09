@@ -32,7 +32,6 @@ class Search extends React.Component<{}, IState> {
                 this.setState(updateState<IState>("movies", data))
             });
         } else {
-            console.log("No hay nada:  " + e.target.value)
             this.setState(updateState<IState>("movies", []));
         }
 

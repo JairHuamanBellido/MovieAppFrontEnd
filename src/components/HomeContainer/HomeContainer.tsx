@@ -4,12 +4,12 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 
 import CollectionContainer from '../CollectionContainer/Collection';
-import SideBarContainer from '../SidebarContainer/SidebarContainer';
 import "../../css/Home.css"
 import MovieDetails from '../../Views/MovieDetails';
 
 import HomeView from './HomeView';
 import Search from '../../Views/Search';
+import HeaderContainer from '../HeaderContainer/HeaderContainer';
 class HomeContainer extends Component {
 
     render() {
@@ -18,7 +18,7 @@ class HomeContainer extends Component {
             <Fragment>
                 <Router>
                     <div className="homeContainer">
-                        <SideBarContainer />
+                        <HeaderContainer />
                         
                         
                         <Switch>

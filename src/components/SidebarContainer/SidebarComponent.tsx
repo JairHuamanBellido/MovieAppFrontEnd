@@ -24,7 +24,7 @@ class SidebarComponent extends React.Component<IProps, IState> {
     }
 
     toggle(e) {
-        
+
         this.setState(updateState<IState>("activeColor", e.target.id));
     }
 
@@ -47,13 +47,9 @@ class SidebarComponent extends React.Component<IProps, IState> {
                     </div>
                     <div className="nav-items">
 
-                        <Link id="Popular" style={{ color: this.opacity("Popular") }} onClick={this.toggle} to="/home/popular">Home
-                        
-                        </Link>
-                        <Link id="Collection" style={{ color: this.opacity("Collection") }} onClick={this.toggle} to="/home/collection">Collection
-                        
-                        </Link>
-                        
+                        <Link id="Popular" style={{ color: this.opacity("Popular") }} onClick={this.toggle} to="/home/popular">Home</Link>
+                        <Link id="Collection" style={{ color: this.opacity("Collection") }} onClick={this.toggle} to="/home/collection">Collection</Link>
+                        <Link id="Search"  style={{color: this.opacity("Search")}} onClick={this.toggle} to="/home/search">Search</Link>
                     </div>
                     <div className="avatar">
                         <img src={`https://jairhuamanbellido.blob.core.windows.net/avatarimages/${this.props.user.username}.jpg`} alt="" />

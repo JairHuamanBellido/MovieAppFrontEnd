@@ -6,7 +6,7 @@ import Login from "./Views/Login";
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Register from './Views/Register';
 import Home from './Views/Home';
-import MovieDetails from './Views/MovieDetails';
+
 
 
 
@@ -31,8 +31,9 @@ class App extends React.Component {
                             <Register />
                         </Route>
 
-                        <Route exact path="/home/movie/:id" component={MovieDetails} />
-                            
+                        
+                        
+                        
 
                     </Switch>
                 </Router>

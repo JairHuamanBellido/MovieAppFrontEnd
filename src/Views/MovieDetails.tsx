@@ -1,11 +1,11 @@
-import React, { Fragment, Suspense } from 'react';
-import { RouteComponentProps, Switch } from 'react-router';
+import React, { Fragment } from 'react';
+import { RouteComponentProps } from 'react-router';
 import { Movie } from '../dto/response/Movie.interface';
 import { MoviesService } from '../service/movies.service';
 import { updateState } from '../shared/updateState';
 
 import { imguri } from '../enviroment';
-import { Router } from "react-router-dom";
+
 import "../css/MovieDetails.css";
 import PosterMovieDetail from '../components/MovieDetailContainer/PosterMovieDetail';
 import InfoMovie from '../components/MovieDetailContainer/InfoMovie';

@@ -23,4 +23,9 @@ export class MoviesService{
         return res.data;
     }
 
+    static async findByName(name): Promise<MoviePoster[]>{
+        const res =  await axios.get(`${uri}/movies/name/${name}`);
+        return res.data;
+    }
+
 }

@@ -9,6 +9,7 @@ import "../../css/Home.css"
 import MovieDetails from '../../Views/MovieDetails';
 
 import HomeView from './HomeView';
+import Search from '../../Views/Search';
 class HomeContainer extends Component {
 
     render() {
@@ -25,6 +26,7 @@ class HomeContainer extends Component {
 
                             <Route path="/home/collection" component={CollectionContainer} />
                             <Route path="/home/movie/:id" component={MovieDetails} />
+                            <Route exact path="/home/search" component={Search} />
 
                         </Switch>
                     </div>

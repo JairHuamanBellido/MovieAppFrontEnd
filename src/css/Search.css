@@ -1,0 +1,46 @@
+@import url('./Rules.css');
+
+.searchContainer{
+    width: 100vw;
+    min-height: 100vh;
+    padding: 96px 128px ;
+    color: #ffffff;
+    overflow: auto;
+    position: relative;
+}
+
+.foundMoviesResults{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.searchContainer h2{
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-weight: 400;
+    font-size: 22px;
+    opacity: .37;
+}
+
+.results{
+    margin-top: 96px;
+}
+
+.searchContainer input{
+    font-family: "Google";
+    border: none;
+    padding-bottom: 12px;
+    background: transparent;
+    color: #ffffff;
+    width: 100%;
+    font-size: 40px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    
+}
+.foundMoviesResults .item-movie{
+    margin: 1.5em 0 !important;
+}
